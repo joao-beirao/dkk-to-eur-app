@@ -28,9 +28,9 @@ fn app() -> Html {
             match k.parse::<f64>() {
                 Ok(v) if v.is_finite() => {
                     let euros: f64 = v * DKK_TO_EUR;
-                    let formatted: String = format!("{:.2}", euros);
-                    let formatted: &str = formatted.trim_end_matches('0').trim_end_matches('.');
-                    result.set(format!("{} DKK = {} EUR", k, formatted));
+                    let euros_str: String = format!("{:.2}", euros);
+                    let euros_str: &str = euros_str.trim_end_matches('0').trim_end_matches('.');
+                    result.set(format!("{}€", euros_str));
                 }
                 _invalid_number => {
                     result.set(String::from("Please enter a valid number."));
@@ -40,7 +40,7 @@ fn app() -> Html {
     };
 
     html! {
-        <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; display:flex; min-height:100vh; align-items:center; justify-content:center; background:#f6f7fb;">
+        <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; display:flex; min-height:100vh; align-items:center; justify-content:center; background:#222222;">
         <div style="background:white; padding:24px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08); width:320px;">
           <h2>{"DKK → EUR"}</h2>
           <label for="dkk">{"Danish Krone (DKK)"}</label>
