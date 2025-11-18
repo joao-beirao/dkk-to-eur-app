@@ -1,6 +1,12 @@
 [package]
 name = "dkk-to-eur-app"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+yew = { version = "0.21", features = ["csr"] }  # check latest version if you update
+wasm-bindgen = "0.2"
+web-sys = "0.3.82"
